@@ -33,7 +33,7 @@ footer network block — plus the JSON-LD `workExample` entries. Keep them in st
 
 ## Status
 
-Live at https://presentingwithimpact.com/ (GitHub Pages, custom domain, DNS at Porkbun).
+Live at https://presentingwithimpact.com/ (GitHub Pages, custom domain, DNS at GoDaddy).
 The page carries canonical, Open Graph and Twitter tags, and WebSite + Organization + Person + Book
 JSON-LD. The author's `@id` is shared with theresilientpathbook.com so search engines treat it as
 one person across both sites.
