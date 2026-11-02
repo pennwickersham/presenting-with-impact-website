@@ -38,12 +38,18 @@ The page carries canonical, Open Graph and Twitter tags, and WebSite + Organizat
 JSON-LD. The author's `@id` is shared with theresilientpathbook.com so search engines treat it as
 one person across both sites.
 
-## DNS (Porkbun)
+## DNS (GoDaddy)
 
-The apex domain is canonical, matching theresilientpathbook.com. **Do not touch existing MX or TXT
-records** if email is ever added to this domain.
+This domain's nameservers are GoDaddy's (`ns31/ns32.domaincontrol.com`), unlike the other
+Brewster Wickersham domains, which are at Porkbun. Manage it in GoDaddy → My Products →
+presentingwithimpact.com → **DNS**.
 
-Four **A** records on the root (Host blank):
+The apex is canonical, matching theresilientpathbook.com.
+
+1. **Turn off domain forwarding / parking first.** GoDaddy re-adds its own A records while
+   forwarding is on, which will fight the records below.
+2. **Delete** the parked apex `A` records (they pointed at `3.33.130.190` and `15.197.148.33`).
+3. **Add four `A` records**, Name `@`:
 
 ```
 185.199.108.153
@@ -52,7 +58,7 @@ Four **A** records on the root (Host blank):
 185.199.111.153
 ```
 
-Four **AAAA** records on the root (Host blank, optional but recommended):
+4. **Add four `AAAA` records**, Name `@` (optional but recommended):
 
 ```
 2606:50c0:8000::153
@@ -61,13 +67,23 @@ Four **AAAA** records on the root (Host blank, optional but recommended):
 2606:50c0:8003::153
 ```
 
-One **CNAME**, Host `www`:
+5. **Replace the `www` CNAME.** It currently points at the apex; it should point at:
 
 ```
 pennwickersham.github.io
 ```
 
-Then in Settings → Pages, wait for the certificate and tick **Enforce HTTPS**.
+Leave any MX or TXT records alone if email is ever added to this domain.
+
+Then in Settings → Pages, wait for the certificate to issue and tick **Enforce HTTPS**. If the
+cert sticks on "DNS check" for more than about half an hour, remove and re-add the custom domain
+via the Pages API — that is what unstuck arcaneestategame.com.
+
+Check with:
+
+```bash
+nslookup presentingwithimpact.com 8.8.8.8
+```
 
 ## Still to do
 
