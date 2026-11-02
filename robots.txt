@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://presentingwithimpact.com/sitemap.xml
+Sitemap: https://presentingwithimpactbook.com/sitemap.xml

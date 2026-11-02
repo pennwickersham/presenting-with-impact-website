@@ -1,4 +1,4 @@
-# presentingwithimpact.com
+# presentingwithimpactbook.com
 
 The book site for **Presenting with Impact: A Practical Guide to Effective Communication** by
 Pendleton B. Wickersham, MD, FACP, FACR, published by
@@ -33,23 +33,21 @@ footer network block — plus the JSON-LD `workExample` entries. Keep them in st
 
 ## Status
 
-Live at https://presentingwithimpact.com/ (GitHub Pages, custom domain, DNS at GoDaddy).
+Live at https://presentingwithimpactbook.com/ (GitHub Pages, custom domain, DNS at GoDaddy).
 The page carries canonical, Open Graph and Twitter tags, and WebSite + Organization + Person + Book
 JSON-LD. The author's `@id` is shared with theresilientpathbook.com so search engines treat it as
 one person across both sites.
 
-## DNS (GoDaddy)
+## DNS (Porkbun)
 
-This domain's nameservers are GoDaddy's (`ns31/ns32.domaincontrol.com`), unlike the other
-Brewster Wickersham domains, which are at Porkbun. Manage it in GoDaddy → My Products →
-presentingwithimpact.com → **DNS**.
-
+The domain is registered at Porkbun (order 12369469, 2026-11-01), like the other Brewster
+Wickersham domains. Manage it in Porkbun → Domain Management → presentingwithimpactbook.com → DNS.
 The apex is canonical, matching theresilientpathbook.com.
 
-1. **Turn off domain forwarding / parking first.** GoDaddy re-adds its own A records while
-   forwarding is on, which will fight the records below.
-2. **Delete** the parked apex `A` records (they pointed at `3.33.130.190` and `15.197.148.33`).
-3. **Add four `A` records**, Name `@`:
+1. **Delete Porkbun's default records first.** A new .com ships with an ALIAS/A record pointing at
+   Porkbun's parking and "Link In Bio" page, plus a `www` CNAME. Those must go or they fight the
+   records below.
+2. **Add four `A` records** on the root (Host left blank):
 
 ```
 185.199.108.153
@@ -58,7 +56,7 @@ The apex is canonical, matching theresilientpathbook.com.
 185.199.111.153
 ```
 
-4. **Add four `AAAA` records**, Name `@` (optional but recommended):
+3. **Add four `AAAA` records**, also on the root (optional but recommended):
 
 ```
 2606:50c0:8000::153
@@ -67,7 +65,7 @@ The apex is canonical, matching theresilientpathbook.com.
 2606:50c0:8003::153
 ```
 
-5. **Replace the `www` CNAME.** It currently points at the apex; it should point at:
+4. **Add one `CNAME`**, Host `www`:
 
 ```
 pennwickersham.github.io
@@ -82,11 +80,11 @@ via the Pages API — that is what unstuck arcaneestategame.com.
 Check with:
 
 ```bash
-nslookup presentingwithimpact.com 8.8.8.8
+nslookup presentingwithimpactbook.com 8.8.8.8
 ```
 
 ## Still to do
 
 1. **Search Console / Bing Webmaster Tools** — verify by DNS TXT and submit
-   `https://presentingwithimpact.com/sitemap.xml`.
+   `https://presentingwithimpactbook.com/sitemap.xml`.
 2. **Reviews** — once the book has a few, consider a short quotes section above the order block.
