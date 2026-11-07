@@ -1,0 +1,1 @@
+document.getElementById('slide-toggle').addEventListener('click',e=>{const n=document.getElementById('slide-note');n.hidden=!n.hidden;e.currentTarget.setAttribute('aria-pressed',String(!n.hidden));});
